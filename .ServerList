@@ -1,0 +1,11 @@
+# This is the TEMPLATE for your servernames -
+# The script will find and fill in the designated IP address
+# the server name does not have to be the full name
+# but enough for `aws ec2 describe-instances` and `grep` command to to identify
+# You do not need to fill in the IP address - the script should find it for you
+# Examples -
+# alias:servername=ip
+dev-varnish:stage-server-1-varnish-asg=192.1.3.231
+dev-varnish-2:stage-server-2-varnish-asg=
+prod-mt-1:Prod-server-1-midtier-asg=192.2.3.231
+dev-mt-3:Dev-server-3-midtier-asg=
