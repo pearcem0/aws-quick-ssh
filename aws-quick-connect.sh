@@ -8,6 +8,7 @@ function init() {
 if [ -z "$serveralias" ]
 then
   echo "Error! Please provide server alias (-s myserver)"
+  exit 1
 else
   echo "Server alias is: $serveralias"
 fi
@@ -15,6 +16,7 @@ fi
 if [ -z "$keypair" ]
 then
   echo "Error! Please provide ssh keypair (-k keypair.pem)"
+  exit 1
 else
   echo "Using keypair: $keypair"
 fi
@@ -22,6 +24,9 @@ fi
 if [ -z "$awsprofile" ]
 then
   echo "Error! Please provide aws profile (-p my-aws-profile)"
+  echo "Current profiles include - "
+  cat ~/.aws/config | grep '\[*\]' | sed 's/\[//g' | sed 's/\]//g' |sed 's/profile//g' | sed 's/ //g'
+  exit 1
 else
   echo "Running as aws profile: $awsprofile"
 fi
